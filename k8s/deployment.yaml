@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: okmauk
+  name: okyipelinf
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: okmauk
+      app: okyipelinf
   template:
     metadata:
       labels:
-        app: okmauk
+        app: okyipelinf
     spec:
       containers:
-      - image: okteto.dev/okmauk:latest
-        name: okmauk
+      - image: okteto.dev/okyipelinf:latest
+        name: okyipelinf
         ports:
         - containerPort: 8080
         env:
