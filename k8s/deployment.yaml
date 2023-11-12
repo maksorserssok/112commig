@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okmauk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: okmauk
+  template:
+    metadata:
+      labels:
+        app: okmauk
+    spec:
+      containers:
+      - image: okteto.dev/okmauk:latest
+        name: okmauk
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: ProxySite
+          value: "mirror.umd.edu"
+        - name: Vless_UUID
+          value: "8446e294-229e-43ff-88fd-e1f577b78294"
+        - name: Vless_Path
+          value: "/8446e294-229e-43ff-88fd-e1f577b78294-vless"
+        - name: Vmess_UUID
+          value: "75a58911-2c2d-4308-a2b6-2e8f4ed70f27"
+        - name: Vmess_Path
+          value: "/75a58911-2c2d-4308-a2b6-2e8f4ed70f27-vmess"
+        - name: Share_Path
+          value: "/Share039"
